@@ -1,0 +1,7 @@
+# Tag definitions used by nodes in this skrpt.
+
+- name: Draft
+  colour: "#eab308"
+
+- name: Tested
+  colour: "#3b82f6"
