@@ -63,3 +63,47 @@ Invoke the **email-subject-line-generator** prompt to produce 10 subject line op
 - If ideation produces insufficient topics, supplement with curated external links
 - If the newsletter exceeds 1,000 words, trim quick reads before cutting from the main feature
 - If subject lines exceed character limits, regenerate with stricter constraints
+
+## Inputs
+
+| Name | Required | Description | Example |
+|------|----------|-------------|---------|
+| `{{input.audience_profile}}` | Yes | Audience profile | `Paste the relevant brief, notes, source material, or dataset here.` |
+| `{{input.recent_content}}` | Yes | recent content | `Paste the relevant brief, notes, source material, or dataset here.` |
+| `{{input.upcoming_announcements}}` | Yes | upcoming announcements | `Paste the relevant brief, notes, source material, or dataset here.` |
+| `{{input.industry_news}}` | No | industry news | `Paste the relevant brief, notes, source material, or dataset here.` |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| Selected topics | Selected topics with angles for the edition |
+| Complete newsletter draft | Complete newsletter draft |
+| Editorially reviewed newsletter | Editorially reviewed newsletter |
+| Subject line options ready for A/B test configuration | Subject line options ready for A/B test configuration |
+
+## Setup
+
+Before running this workflow:
+
+1. No external services required — paste your content directly and provide any supporting context as inputs or source nodes.
+2. Review the included documents, assets, or source nodes and customise them to match your team, brand, or domain conventions where needed.
+3. No specific AI provider or API key is required beyond your configured skrptiq LLM provider.
+
+## Provider Notes
+
+- Most stages work with any capable model; stronger models usually improve synthesis, judgement, and writing quality.
+- Extraction, classification, and formatting steps generally run well on smaller or faster models.
+- Because there are no vendor-specific integrations here, provider choice is mostly a trade-off between speed, quality, and cost.
+
+## Example Input
+
+To test this workflow immediately after import:
+
+```
+Audience Profile: "Paste the relevant brief, notes, source material, or dataset here."
+Recent Content: "Paste the relevant brief, notes, source material, or dataset here."
+Upcoming Announcements: "Paste the relevant brief, notes, source material, or dataset here."
+Industry News: "Paste the relevant brief, notes, source material, or dataset here."
+```
+
