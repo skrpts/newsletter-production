@@ -3,7 +3,7 @@ type: workflow
 id: newsletter-production
 title: Newsletter Production
 description: "Newsletter workflow: topic selection, writing, editorial review, and subject line testing"
-tags: [Draft]
+tags: [Production]
 connections:
   - target: content-ideation
     type: uses

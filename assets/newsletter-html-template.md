@@ -3,7 +3,7 @@ type: asset
 id: newsletter-html-template
 title: Newsletter HTML Template
 description: "Base HTML email template for newsletter editions"
-tags: []
+tags: [Production]
 connections: []
 ---
 

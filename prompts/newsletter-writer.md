@@ -3,7 +3,7 @@ type: prompt
 id: newsletter-writer
 title: Newsletter Writer
 description: "Composes a newsletter edition from curated topics and updates"
-tags: []
+tags: [Production]
 connections: []
 metadata:
   output_format: markdown
@@ -18,14 +18,17 @@ Produces a complete newsletter edition ready for formatting and sending.
 
 You are a newsletter writer. Compose a newsletter edition using the topics and updates below. Write in a conversational yet professional tone. Include: a compelling subject line, an engaging opening, clearly structured sections, and a sign-off with a call to action.
 
-## Newsletter Name
-{{newsletter_name}}
+### Inputs
+
+- **Audience profile:** {{input.audience_profile}}
+- **Recent content:** {{input.recent_content}}
+- **Upcoming announcements:** {{input.upcoming_announcements}}
+- **Industry news:** {{input.industry_news}}
 
 ## Topics
-{{topics}}
 
-## Audience
-{{audience}}
+Using the selected topics from the previous ideation stage, write the newsletter edition covering the main feature and quick-read items.
 
 ## Tone
-{{tone}}
+
+Conversational yet professional — match the audience profile and brand expectations.
