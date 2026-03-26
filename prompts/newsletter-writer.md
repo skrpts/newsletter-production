@@ -27,7 +27,9 @@ You are a newsletter writer. Compose a newsletter edition using the topics and u
 
 ## Topics
 
-Using the selected topics from the previous ideation stage, write the newsletter edition covering the main feature and quick-read items.
+{{steps.content-ideation.output}}
+
+Using the selected topics above, write the newsletter edition covering the main feature and quick-read items.
 
 ## Tone
 

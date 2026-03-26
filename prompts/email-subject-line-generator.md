@@ -20,12 +20,12 @@ You are an email marketing specialist. Generate 10 subject line options for the 
 
 ### Inputs
 
-This prompt receives the finalised newsletter content from the editorial review stage. Use the newsletter text, tone, and main topic from the earlier writing and review stages to generate subject lines that reflect the edition's value proposition.
+- **Finalised newsletter content:** {{steps.editorial-review.output}}
 
 ## Email Purpose
 
-Using the finalised newsletter content from the previous stage, generate subject lines that reflect the edition's main topic and value proposition.
+Using the finalised newsletter content above, generate subject lines that reflect the edition's main topic and value proposition.
 
 ## Key Offer/Message
 
-Derive the key message from the newsletter content produced in the editorial review stage.
+Derive the key message from {{steps.editorial-review.output}}.
