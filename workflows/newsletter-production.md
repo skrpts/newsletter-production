@@ -12,7 +12,9 @@ connections:
   - target: editorial-review
     type: uses
   - target: email-subject-line-generator
-    type: uses
+    type: uses  - target: llm-service
+    type: runs_on
+
 metadata:
   estimated_duration: "10-20 minutes"
   trigger: manual
