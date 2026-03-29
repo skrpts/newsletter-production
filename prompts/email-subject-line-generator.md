@@ -3,7 +3,7 @@ type: prompt
 id: email-subject-line-generator
 title: Email Subject Line Generator
 description: "Generates subject line options optimised for open rates"
-tags: [Production]
+tags: [Production, writing:copy, writing:content]
 connections: []
 metadata:
   output_format: markdown
