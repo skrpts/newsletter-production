@@ -12,7 +12,8 @@ connections:
   - target: editorial-review
     type: uses
   - target: email-subject-line-generator
-    type: uses  - target: llm-service
+    type: uses
+  - target: llm-service
     type: runs_on
 
 metadata:
