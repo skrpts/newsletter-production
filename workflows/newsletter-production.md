@@ -16,14 +16,14 @@ connections:
   - target: llm-service
     type: runs_on
 
+  - target: content-briefing
+  - target: headline-writing
+  - target: newsletter-html-template
 metadata:
   estimated_duration: "10-20 minutes"
   trigger: manual
-  - target: content-briefing
     type: uses
-  - target: headline-writing
     type: uses
-  - target: newsletter-html-template
     type: references
 ---
 
