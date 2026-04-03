@@ -9,8 +9,6 @@ connections:
     type: uses
   - target: newsletter-writer
     type: uses
-  - target: editorial-review
-    type: uses
   - target: email-subject-line-generator
     type: uses
   - target: llm-service
@@ -20,6 +18,10 @@ connections:
   - target: headline-writing
     type: uses
   - target: newsletter-html-template
+    type: uses
+  - target: language-polish
+    type: uses
+  - target: consistency-check
     type: uses
 metadata:
   estimated_duration: "10-20 minutes"
