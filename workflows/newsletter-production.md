@@ -7,10 +7,6 @@ tags: [Production, Content, Review, Writing]
 connections:
   - target: content-ideation
     type: uses
-  - target: newsletter-writer
-    type: uses
-  - target: email-subject-line-generator
-    type: uses
   - target: llm-service
     type: runs_on
   - target: content-briefing
