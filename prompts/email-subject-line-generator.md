@@ -20,7 +20,7 @@ You are an email marketing specialist. Generate 10 subject line options for the 
 
 ### Inputs
 
-- **Finalised newsletter content:** {{steps.editorial-review.output}}
+- **Finalised newsletter content:** {{steps.Editorial Review.output}}
 
 ## Email Purpose
 
@@ -28,4 +28,4 @@ Using the finalised newsletter content above, generate subject lines that reflec
 
 ## Key Offer/Message
 
-Derive the key message from {{steps.editorial-review.output}}.
+Derive the key message from {{steps.Editorial Review.output}}.
