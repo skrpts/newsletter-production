@@ -22,6 +22,16 @@ connections:
 metadata:
   estimated_duration: "10-20 minutes"
   trigger: manual
+execution:
+  - skill: "content-ideation"
+  - skill: "headline-writing"
+    input_from: "content-ideation"
+  - skill: "newsletter-html-template"
+    input_from: "headline-writing"
+  - skill: "language-polish"
+    input_from: "newsletter-html-template"
+  - skill: "consistency-check"
+    input_from: "newsletter-html-template"
 ---
 
 ## Overview
