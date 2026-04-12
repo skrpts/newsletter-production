@@ -24,16 +24,6 @@ metadata:
   trigger: manual
 execution:
   - skill: "content-ideation"
-  - skill: "headline-writing"
-    input_from: "content-ideation"
-  - skill: "newsletter-html-template"
-    input_from: "headline-writing"
-  - skill: "language-polish"
-    input_from: "newsletter-html-template"
-  - skill: "consistency-check"
-    input_from: "newsletter-html-template"
-execution:
-  - skill: "content-ideation"
     step_type: "generation"
   - skill: "headline-writing"
     step_type: "generation"
@@ -137,4 +127,3 @@ Recent Content: "Paste the relevant brief, notes, source material, or dataset he
 Upcoming Announcements: "Paste the relevant brief, notes, source material, or dataset here."
 Industry News: "Paste the relevant brief, notes, source material, or dataset here."
 ```
-
