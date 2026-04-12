@@ -32,6 +32,21 @@ execution:
     input_from: "newsletter-html-template"
   - skill: "consistency-check"
     input_from: "newsletter-html-template"
+execution:
+  - skill: "content-ideation"
+    step_type: "generation"
+  - skill: "headline-writing"
+    step_type: "generation"
+    input_from: "content-ideation"
+  - skill: "newsletter-html-template"
+    step_type: "generation"
+    input_from: "headline-writing"
+  - skill: "language-polish"
+    step_type: "content"
+    input_from: "newsletter-html-template"
+  - skill: "consistency-check"
+    step_type: "review"
+    input_from: "language-polish"
 ---
 
 ## Overview
