@@ -22,6 +22,13 @@ connections:
 metadata:
   estimated_duration: "10-20 minutes"
   trigger: manual
+output_step: "newsletter-html-template"
+composite_steps:
+  - "content-ideation"
+  - "headline-writing"
+  - "newsletter-html-template"
+  - "language-polish"
+  - "consistency-check"
 execution:
   - skill: "content-ideation"
     step_type: "generation"
