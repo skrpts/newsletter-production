@@ -32,6 +32,7 @@ composite_steps:
 execution:
   - skill: "content-ideation"
     step_type: "generation"
+    prompt: "newsletter-brief"
     context:
       content_context: ""
   - skill: "headline-writing"

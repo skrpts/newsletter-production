@@ -3,7 +3,7 @@ id: "b6af18e7-c59f-4e08-99e6-84cf5a7c5a0e"
 name: "newsletter-production"
 display_name: "Newsletter Production"
 description: "Newsletter workflow: topic selection, writing, editorial review, and subject line testing"
-version: "1.1.11"
+version: "1.1.12"
 engine: ">=1.0.0"
 
 # --- Attribution ---
@@ -32,10 +32,10 @@ requires:
 # --- Contents ---
 contents:
   skills: 5
-  prompts: 7
+  prompts: 8
   workflows: 1
   services: 1
   sources: 2
   documents: 0
   assets: 1
-  total: 17
+  total: 18
