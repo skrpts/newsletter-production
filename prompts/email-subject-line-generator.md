@@ -4,7 +4,9 @@ id: email-subject-line-generator
 title: Email Subject Line Generator
 description: "Generates subject line options optimised for open rates"
 tags: [Production, Content, Writing]
-connections: []
+connections:
+  - target: headline-writing
+    type: derived_from
 metadata:
   output_format: markdown
   prompt_type: task

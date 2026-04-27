@@ -36,12 +36,15 @@ execution:
     context:
       content_context: ""
   - skill: "headline-writing"
+    prompt: "write-headlines"
     step_type: "generation"
   - skill: "newsletter-html-template"
     step_type: "generation"
   - skill: "language-polish"
+    prompt: "polish-language"
     step_type: "content"
   - skill: "consistency-check"
+    prompt: "check-consistency"
     step_type: "review"
 ---
 
