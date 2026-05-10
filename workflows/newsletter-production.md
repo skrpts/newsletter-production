@@ -10,7 +10,7 @@ connections:
   - target: llm-service
     type: runs_on
   - target: content-briefing
-    type: references
+    type: uses
   - target: headline-writing
     type: uses
   - target: newsletter-html-template
@@ -35,6 +35,11 @@ execution:
     prompt: "newsletter-brief"
     context:
       content_context: ""
+  - skill: "content-briefing"
+    prompt: "create-content-brief"
+    step_type: "generation"
+    context:
+      target_audience: ""
   - skill: "headline-writing"
     prompt: "write-headlines"
     step_type: "generation"
@@ -43,9 +48,15 @@ execution:
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
+    context:
+      voice_profile: ""
+      grammar_strictness: ""
   - skill: "consistency-check"
     prompt: "check-consistency"
     step_type: "review"
+    context:
+      voice_profile: ""
+      consistency_strictness: ""
 ---
 
 ## Overview
