@@ -2,148 +2,121 @@
 type: workflow
 id: newsletter-production
 title: Newsletter Production
-description: "Newsletter workflow: topic selection, writing, editorial review, and subject line testing"
-tags: [Production, Content, Review, Writing]
+description: "Produces a complete newsletter edition: topic ideation, full draft, language polish, and subject line options for A/B testing"
+tags: [Production, Content, Writing]
 connections:
   - target: content-ideation
     type: uses
-  - target: llm-service
-    type: runs_on
-  - target: content-briefing
-    type: uses
-  - target: headline-writing
-    type: uses
-  - target: newsletter-html-template
+  - target: newsletter-writing
     type: uses
   - target: language-polish
     type: uses
-  - target: consistency-check
+  - target: subject-line-generation
     type: uses
+  - target: llm-service
+    type: runs_on
+  - target: brand-voice-guide
+    type: references
+  - target: editorial-style-guide
+    type: references
 metadata:
-  estimated_duration: "10-20 minutes"
+  estimated_duration: "5-10 minutes"
   trigger: manual
-output_step: "newsletter-html-template"
+output_step: "subject-line-generation"
 composite_steps:
   - "content-ideation"
-  - "headline-writing"
-  - "newsletter-html-template"
+  - "newsletter-writing"
   - "language-polish"
-  - "consistency-check"
+  - "subject-line-generation"
 execution:
   - skill: "content-ideation"
+    prompt: "generate-ideas"
     step_type: "generation"
-    prompt: "newsletter-brief"
-    context:
-      content_context: ""
-  - skill: "content-briefing"
-    prompt: "create-content-brief"
-    step_type: "generation"
-    context:
-      target_audience: ""
-  - skill: "headline-writing"
-    prompt: "write-headlines"
-    step_type: "generation"
-  - skill: "newsletter-html-template"
+  - skill: "newsletter-writing"
+    prompt: "write-newsletter"
     step_type: "generation"
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
     context:
-      voice_profile: ""
-      grammar_strictness: ""
-  - skill: "consistency-check"
-    prompt: "check-consistency"
-    step_type: "review"
-    context:
-      voice_profile: ""
-      consistency_strictness: ""
+      voice_profile: "Neutral professional tone"
+      grammar_strictness: "Professional"
+  - skill: "subject-line-generation"
+    prompt: "generate-subject-lines"
+    step_type: "generation"
 ---
 
 ## Overview
 
-This workflow produces a complete newsletter edition from topic selection through to a send-ready email with tested subject lines. It combines ideation, writing, editorial review, and subject line generation into a repeatable production process.
+This workflow produces a complete, send-ready newsletter edition from a topic brief. It handles ideation, writing, editorial polish, and subject line generation in a single pipeline.
 
-## Pipeline Stages
+## Pipeline
 
-### Stage 1: Topic Selection
+### Step 1: Topic Ideation
 
-**Input:** Audience profile, recent content, upcoming announcements, industry news
+**Skill:** content-ideation | **Prompt:** generate-ideas
 
-Invoke the **content-ideation** skill to generate topic ideas for the newsletter edition. Select the main feature topic and 2-3 quick read items from the ranked list.
+Generates 5-8 content ideas from your edition brief, then recommends which to use as the main feature, quick reads, and curated links. Produces a structured topic plan with angles, lengths, and reading order.
 
-**Output:** Selected topics with angles for the edition.
+**Input:** Newsletter topic/theme, audience description, and any specific items to include.
 
-### Stage 2: Newsletter Writing
+**Output:** Ranked topic plan with main feature, quick reads, and edition flow.
 
-**Input:** Selected topics from Stage 1, audience details, brand guidelines
+### Step 2: Newsletter Writing
 
-Invoke the **newsletter-writer** prompt to compose the full edition: opening hook, main feature, quick reads, curated links, and sign-off.
+**Skill:** newsletter-writing | **Prompt:** write-newsletter
 
-**Output:** Complete newsletter draft.
+Composes the full newsletter edition from the topic plan: opening hook, main feature (300-500 words), 2-3 quick reads (100-150 words each), curated links, and sign-off with call to action. Target length: 800-1200 words.
 
-### Stage 3: Editorial Review
+**Output:** Complete newsletter draft in markdown.
 
-**Input:** Newsletter draft from Stage 2
+### Step 3: Language Polish
 
-Invoke the **editorial-review** skill to check grammar, style, and tone consistency. Apply corrections to produce a clean final draft.
+**Skill:** language-polish | **Prompt:** polish-language
 
-**Gate:** All errors resolved before proceeding.
+Surface-level cleanup: spelling, grammar, punctuation, sentence clarity. Does not change the structure, tone, or content — just makes it publication-ready.
 
-**Output:** Editorially reviewed newsletter.
+**Output:** Polished newsletter draft.
 
-### Stage 4: Subject Line Testing
+### Step 4: Subject Line Generation
 
-**Input:** Finalised newsletter content summary
+**Skill:** subject-line-generation | **Prompt:** generate-subject-lines
 
-Invoke the **email-subject-line-generator** prompt to produce 10 subject line options across direct, curiosity, and personal categories. Select 2-3 for A/B testing.
+Generates 8-10 subject line options using varied techniques (direct benefit, curiosity, personal, question, number). Rates each for open-rate potential and recommends 2-3 for A/B testing.
 
-**Output:** Subject line options ready for A/B test configuration.
-
-## Error Handling
-
-- If ideation produces insufficient topics, supplement with curated external links
-- If the newsletter exceeds 1,000 words, trim quick reads before cutting from the main feature
-- If subject lines exceed character limits, regenerate with stricter constraints
+**Output:** Subject line options with ratings and A/B testing recommendations.
 
 ## Inputs
 
 | Name | Required | Description | Example |
 |------|----------|-------------|---------|
-| `{{input.audience_profile}}` | Yes | Audience profile | `Paste the relevant brief, notes, source material, or dataset here.` |
-| `{{input.recent_content}}` | Yes | recent content | `Paste the relevant brief, notes, source material, or dataset here.` |
-| `{{input.upcoming_announcements}}` | Yes | upcoming announcements | `Paste the relevant brief, notes, source material, or dataset here.` |
-| `{{input.industry_news}}` | No | industry news | `Paste the relevant brief, notes, source material, or dataset here.` |
+| `{{input.newsletter_topic}}` | Yes | The theme or focus for this edition | "AI tools that actually save time" |
+| `{{input.audience}}` | Yes | Who subscribes to this newsletter | "Marketing professionals interested in AI" |
+| `{{input.edition_notes}}` | No | Specific items, links, or announcements to include | "Include our new case study" |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| Selected topics | Selected topics with angles for the edition |
-| Complete newsletter draft | Complete newsletter draft |
-| Editorially reviewed newsletter | Editorially reviewed newsletter |
-| Subject line options ready for A/B test configuration | Subject line options ready for A/B test configuration |
+| Newsletter draft | Complete, polished newsletter in markdown |
+| Subject line options | 8-10 options with ratings and A/B recommendations |
 
 ## Setup
 
-Before running this workflow:
-
-1. No external services required — paste your content directly and provide any supporting context as inputs or source nodes.
-2. Review the included documents, assets, or source nodes and customise them to match your team, brand, or domain conventions where needed.
-3. No specific AI provider or API key is required beyond your configured skrptiq LLM provider.
+No external services required — this workflow runs entirely on your configured LLM provider.
 
 ## Provider Notes
 
-- Most stages work with any capable model; stronger models usually improve synthesis, judgement, and writing quality.
-- Extraction, classification, and formatting steps generally run well on smaller or faster models.
-- Because there are no vendor-specific integrations here, provider choice is mostly a trade-off between speed, quality, and cost.
+- The writing step is the most token-intensive (3,000+ tokens for the full draft)
+- The ideation and subject line steps are lightweight
+- Works well with any capable model; stronger models produce better prose in the writing step
 
 ## Example Input
 
-To test this workflow immediately after import:
+To test this workflow immediately after import, use **Try with Examples**:
 
 ```
-Audience Profile: "Paste the relevant brief, notes, source material, or dataset here."
-Recent Content: "Paste the relevant brief, notes, source material, or dataset here."
-Upcoming Announcements: "Paste the relevant brief, notes, source material, or dataset here."
-Industry News: "Paste the relevant brief, notes, source material, or dataset here."
+Newsletter Topic: "Five practical ways to reduce meeting fatigue in remote teams"
+Audience: "Team leads and managers at fully remote companies"
+Edition Notes: "Mention our new async standup feature. Link to the Basecamp remote work guide."
 ```
