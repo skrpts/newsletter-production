@@ -2,7 +2,7 @@
 name: "newsletter-production"
 display_name: "Newsletter Production"
 description: "Produces a complete newsletter edition: topic ideation, full draft, language polish, and subject line options for A/B testing"
-version: "2.0.1"
+version: "2.0.2"
 engine: ">=1.0.0"
 
 # --- Attribution ---

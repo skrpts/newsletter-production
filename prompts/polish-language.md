@@ -33,7 +33,7 @@ If no voice profile is provided, polish using standard editorial judgement.
 
 ### Text to Polish
 
-{{steps.Newsletter Writing.output}}
+{{steps.previous.output}}
 
 ### Grammar Strictness: {{step.context.grammar_strictness}}
 
