@@ -1,7 +1,7 @@
 # Release Notes
 
 ## v2.0.7
-First release with real release notes. Release notes infrastructure (GH#554) now extracts notes from RELEASE_NOTES.md at publish time.
+First release with structured release notes. Release notes infrastructure (GH#554) now extracts notes from RELEASE_NOTES.md at publish time.
 
 ## v2.0.6
 Added RELEASE_NOTES.md stub. Engine version constraint updated to >=0.1.0.
