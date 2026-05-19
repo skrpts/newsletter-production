@@ -1,5 +1,8 @@
 # Release Notes
 
+## v2.0.9
+Signature fix — RELEASE_NOTES.md now included in integrity checksum.
+
 ## v2.0.8
 Pipeline extraction fix — release notes now correctly appear in GitHub Release body and version registration.
 
