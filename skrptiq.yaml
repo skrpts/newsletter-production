@@ -3,7 +3,7 @@ id: "b6af18e7-c59f-4e08-99e6-84cf5a7c5a0e"
 name: "newsletter-production"
 display_name: "Newsletter Production"
 description: "Produces a complete newsletter edition: topic ideation, full draft, language polish, and subject line options for A/B testing"
-version: "2.0.7"
+version: "2.0.8"
 engine: ">=0.1.0"
 
 # --- Attribution ---
