@@ -32,18 +32,22 @@ execution:
   - skill: "content-ideation"
     prompt: "generate-ideas"
     step_type: "generation"
+    output: { name: "ideas", type: "list" }
   - skill: "newsletter-writing"
     prompt: "write-newsletter"
     step_type: "generation"
+    output: { name: "newsletter_draft", type: "text" }
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
+    output: { name: "polished_newsletter", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       grammar_strictness: "Professional"
   - skill: "subject-line-generation"
     prompt: "generate-subject-lines"
     step_type: "generation"
+    output: { name: "subject_lines", type: "list" }
 ---
 
 ## Overview

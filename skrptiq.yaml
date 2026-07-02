@@ -3,7 +3,7 @@ id: "b6af18e7-c59f-4e08-99e6-84cf5a7c5a0e"
 name: "newsletter-production"
 display_name: "Newsletter Production"
 description: "Produces a complete newsletter edition: topic ideation, full draft, language polish, and subject line options for A/B testing"
-version: "2.0.13"
+version: "2.0.14"
 engine: ">=0.1.0"
 
 # --- Attribution ---
@@ -67,7 +67,7 @@ contents:
 
 security:
   status: "pass"
-  scanned_at: "2026-07-02T19:02:22.627Z"
+  scanned_at: "2026-07-02T19:13:32.776Z"
   scanner_version: "3.3.0"
   syntactic: "pass"
   structural: "pass"
