@@ -2,7 +2,7 @@
 type: skill
 id: subject-line-generation
 title: Subject Line Generation
-description: "Generates email subject line options optimised for open rates, ready for A/B testing"
+description: "Generates email subject line options optimized for open rates, ready for A/B testing"
 tags: [Production, Content, Writing]
 connections:
   - target: llm-service
@@ -18,7 +18,7 @@ Takes the polished newsletter and generates multiple subject line options across
 
 ## What It Does
 
-1. **Analyses the newsletter** — identifies the main topic, key value proposition, and emotional hooks
+1. **Analyzes the newsletter** — identifies the main topic, key value proposition, and emotional hooks
 2. **Generates options** — produces 8-10 subject lines using varied techniques
 3. **Rates each option** — estimates open-rate potential (1-5) based on technique and content fit
 4. **Recommends A/B set** — suggests 2-3 options for A/B testing with rationale

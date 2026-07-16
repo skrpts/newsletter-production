@@ -14,7 +14,7 @@ metadata:
 
 ## Purpose
 
-Final step in the newsletter pipeline. Generates subject line options optimised for open rates.
+Final step in the newsletter pipeline. Generates subject line options optimized for open rates.
 
 ## Prompt
 
