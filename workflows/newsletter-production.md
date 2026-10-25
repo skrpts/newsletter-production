@@ -44,6 +44,10 @@ execution:
     context:
       voice_profile: "Neutral professional tone"
       grammar_strictness: "Professional"
+    bindings:
+      source:
+        from_step: "Newsletter Writing"
+        field: output
   - skill: "subject-line-generation"
     prompt: "generate-subject-lines"
     step_type: "generation"

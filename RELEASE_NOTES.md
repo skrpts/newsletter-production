@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.0.16
+GH#1100 consumer wave (batch 4) — declare the data flow this workflow was resolving positionally.
+
+Each stage below now receives its input through a declared `bindings:` entry instead of `default_from_previous`, which K-073 revoked. **The value is unchanged**: each binding names the step that actually produces what the stage consumes. What changes is that the dependency is stated rather than inferred from position, so a reorder can no longer silently feed a stage the wrong artefact.
+
+Bindings added:
+  `polish-language` ← `source: from_step "Newsletter Writing"` (step 3)
+
+Dependency pins moved to the published versions that declare these slots:
+  `editorial-style-guide` 1.0.1 → 1.0.2
+  `polish-language` 1.0.1 → 1.0.7
+
 ## v2.0.15
 GH#845 — republish with American English (en-US) content, completing the source-only GH#805 flip that never reached the Hub. Copy only — no functional or behaviour change.
 
